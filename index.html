@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ABM de Productos</title>
+</head>
+<body>
+    <h1>Administración de Productos</h1>
+    
+    <!-- Formulario para agregar un producto -->
+    <h2>Agregar Producto</h2>
+    <form method="POST" action="index.php">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" required>
+        <label for="precio">Precio:</label>
+        <input type="number" name="precio" required>
+        <label for="cantidad">Cantidad:</label>
+        <input type="number" name="cantidad" required>
+        <input type="submit" name="submit_agregar" value="Agregar Producto">
+    </form>
+
+    <!-- Formulario para editar un producto -->
+    <h2>Editar Producto</h2>
+    <form method="POST" action="index.php">
+        <label for="id_edit">ID del Producto a Editar:</label>
+        <input type="number" name="id_edit" required>
+        <label for="nombre_edit">Nuevo Nombre:</label>
+        <input type="text" name="nombre_edit" required>
+        <label for="precio_edit">Nuevo Precio:</label>
+        <input type="number" name="precio_edit" required>
+        <label for="cantidad_edit">Nueva Cantidad:</label>
+        <input type="number" name="cantidad_edit" required>
+        <input type="submit" name="submit_editar" value="Editar Producto">
+    </form>
+
+    <!-- Formulario para eliminar un producto -->
+    <h2>Eliminar Producto</h2>
+    <form method="POST" action="index.php">
+        <label for="id_eliminar">ID del Producto a Eliminar:</label>
+        <input type="number" name="id_eliminar" required>
+        <input type="submit" name="submit_eliminar" value="Eliminar Producto">
+    </form>
+
+    <!-- Tabla para listar productos -->
+    <h2>Listado de Productos</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+        </tr>
+        <?php
+        foreach ($productos as $producto) {
+            echo "<tr>";
+            echo "<td>" . $producto['id'] . "</td>";
+            echo "<td>" . $producto['nombre'] . "</td>";
+            echo "<td>" . $producto['precio'] . "</td>";
+            echo "<td>" . $producto['cantidad'] . "</td>";
+            echo "</tr>";
+        }
+        ?>
+    </table>
+</body>
+</html>
